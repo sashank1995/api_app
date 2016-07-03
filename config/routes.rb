@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  # root 'welcome#index'
+  namespace :api, defaults: {format: :json}, constraints: { subdomain: 'api' }, path: '/'  do
+    
+  end
 end
