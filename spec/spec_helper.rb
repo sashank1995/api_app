@@ -19,6 +19,9 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   config.include Request::JsonHelpers, :type => :controller
 
+  #config.include Devise::TestHelpers, :type => :controller
+  config.include Devise::Test::ControllerHelpers, :type => :controller
+
   config.include Request::HeadersHelpers, :type => :controller
 
   config.before(:each, type: :controller) do
