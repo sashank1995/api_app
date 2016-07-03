@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'ae8b4bce1b4938b40e2429bb42801b33178a82d1928b04d0a438018765b9691b01e33751f291dab361faab7aaf1c7151b032830b0aa419572a607f0f58451b6c'
+  # config.secret_key = 'adfcbc7852f80ab73bf347e912d1fad8b3e40722788aba44f0b0ac4758208c8343edddfebb2d404a4d054e22abd2828b31b37c63b05257733d416da618700884'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -90,6 +90,12 @@ Devise.setup do |config|
   # from the server. You can disable this option at your own risk.
   # config.clean_up_csrf_token_on_authentication = true
 
+  # When false, Devise will not attempt to reload routes on eager load.
+  # This can reduce the time taken to boot the app but if your application
+  # requires the Devise mappings to be loaded during boot time the application
+  # won't boot properly.
+  # config.reload_routes = true
+
   # ==> Configuration for :database_authenticatable
   # For bcrypt, this is the cost for hashing the password and defaults to 11. If
   # using other algorithms, it sets how many times you want the password to be hashed.
@@ -102,7 +108,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'daa83d6ac596ed7b6799f260fe2da00675f41bd282385f80b9f552392753dd88a4cc36fb743a86bdaf4f27ad58d96c0134e2889c526c8bb51fb86582474fec62'
+  # config.pepper = 'e1ec1771615a20ed2e6dc2c95bc823ffe598bd450b880e8f8bd9b113f8c1b016817ebbc40558474da3b1b713199043eff893b70ac9232580a5d1a8b718a89446'
 
   # Send a notification email when the user's password is changed
   # config.send_password_change_notification = false
@@ -247,10 +253,10 @@ Devise.setup do |config|
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
   #
-  # config.warden do |manager|
-  #   manager.intercept_401 = false
-  #   manager.default_strategies(scope: :user).unshift :some_external_strategy
-  # end
+   config.warden do |manager|
+     manager.intercept_401 = false
+     manager.default_strategies(scope: :user).unshift :some_external_strategy
+   end
 
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine
